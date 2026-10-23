@@ -20,6 +20,7 @@ export type BusinessInfo = {
   founderName: string;
   phoneDisplay: string;
   phoneHref: string;
+  email: string;
   primaryDomain: string;
   instagramHandle: string;
   instagramUrl: string;

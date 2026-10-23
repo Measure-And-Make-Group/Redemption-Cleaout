@@ -31,6 +31,7 @@ export function organizationJsonLd() {
     name: business.name,
     url: siteUrl,
     telephone: business.phoneDisplay,
+    email: business.email,
     slogan: business.legalTagline,
     description: `Full property cleanouts and demolition throughout Metro Detroit — ${business.serviceRegionSummary}.`,
     areaServed: areaServedNodes(),
