@@ -5,6 +5,13 @@
 - **GA4** via `src/components/Analytics.tsx`, gated behind visitor consent
   (`src/components/ConsentBanner.tsx`). The GA script tags never load until
   a visitor clicks "Accept."
+- **Google Tag Manager** — container `GTM-N5TDNDFQ`, injected by
+  `Analytics.tsx` after consent, same gate as GA4. Google's `<noscript>`
+  iframe is intentionally not installed (it would run for visitors who can
+  never have consented). If GA4 is also configured inside the container,
+  remove the direct GA4 tag above or one of the two, or pageviews will be
+  counted twice. Consent-gated means the GTM Test/Preview tools only see the
+  container after you accept the banner.
 - **Search Console** — not wired into the codebase; verify the domain and
   submit `https://redemptioncleanoutservices.com/sitemap.xml` manually
   after launch (see `DEPLOYMENT.md`).

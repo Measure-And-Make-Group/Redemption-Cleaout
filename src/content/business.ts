@@ -43,6 +43,9 @@ export const siteUrl = resolveSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 export const jobberRequestFormUrl = process.env.NEXT_PUBLIC_JOBBER_REQUEST_FORM_URL ?? "";
 export const jobberEmbedUrl = process.env.NEXT_PUBLIC_JOBBER_EMBED_URL ?? "";
 export const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "";
+// Public container ID (not a secret). Defaults to the live container so the
+// site works without extra Vercel configuration; override per environment.
+export const gtmContainerId = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-N5TDNDFQ";
 export const googleReviewUrl = process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL ?? "";
 export const googleBusinessUrl = process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_URL ?? "";
 
