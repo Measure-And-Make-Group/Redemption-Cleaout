@@ -22,7 +22,7 @@ export const business: BusinessInfo = {
   founderName: "Dante Terracciano",
   phoneDisplay: "(248) 321-9609",
   phoneHref: "+12483219609",
-  email: "dante@redemptioncleanoutservices.com",
+  email: "Dante@redemptioncleanoutservices.com",
   primaryDomain: "redemptioncleanoutservices.com",
   instagramHandle: "@redemption_cleanoutservices",
   instagramUrl: "https://www.instagram.com/redemption_cleanoutservices",
