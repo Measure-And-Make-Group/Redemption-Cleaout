@@ -18,3 +18,16 @@ describe("business config address safety rule", () => {
     expect(business.address.street).toBe("429 South Main Street");
   });
 });
+
+describe("published business email", () => {
+  it("sits on the primary domain", () => {
+    // The Google login supplied for this business was at the singular
+    // "redemptioncleanoutservice.com". The site serves the plural domain, and
+    // an address on the wrong one would bounce silently.
+    expect(business.email.toLowerCase()).toContain(`@${business.primaryDomain}`);
+  });
+
+  it("is a single address, not a list or a display name", () => {
+    expect(business.email).not.toMatch(/[,;<>\s]/);
+  });
+});

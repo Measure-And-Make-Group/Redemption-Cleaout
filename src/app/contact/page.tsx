@@ -5,7 +5,12 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { StructuredData } from "@/components/StructuredData";
 import { Reveal } from "@/components/motion/Reveal";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
-import { business, formatPhoneSmsHref, formatPhoneTelHref } from "@/content/business";
+import {
+  business,
+  formatEmailHref,
+  formatPhoneSmsHref,
+  formatPhoneTelHref,
+} from "@/content/business";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact Us",
@@ -71,6 +76,23 @@ export default function ContactPage() {
 
               <Reveal delay={160}>
                 <div className="grid gap-2 border-b border-heritage-black/12 py-8 sm:grid-cols-[minmax(0,10rem)_1fr] sm:gap-8">
+                  <h2 className="eyebrow-plain text-steel-gray">Email</h2>
+                  <div>
+                    <a
+                      href={formatEmailHref()}
+                      className="break-all font-display text-xl font-semibold text-heritage-black transition-colors duration-micro hover:text-redemption-red"
+                    >
+                      {business.email}
+                    </a>
+                    <p className="mt-2 text-sm text-steel-gray">
+                      Best for photo sets, documents, or anything with a paper trail.
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+
+              <Reveal delay={220}>
+                <div className="grid gap-2 border-b border-heritage-black/12 py-8 sm:grid-cols-[minmax(0,10rem)_1fr] sm:gap-8">
                   <h2 className="eyebrow-plain text-steel-gray">Online</h2>
                   <div>
                     <Link
@@ -86,7 +108,7 @@ export default function ContactPage() {
                 </div>
               </Reveal>
 
-              <Reveal delay={220}>
+              <Reveal delay={280}>
                 <div className="grid gap-2 py-8 sm:grid-cols-[minmax(0,10rem)_1fr] sm:gap-8">
                   <h2 className="eyebrow-plain text-steel-gray">Instagram</h2>
                   <div>

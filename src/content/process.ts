@@ -10,7 +10,7 @@ export const howItWorksSteps: ProcessStep[] = [
   {
     title: "Send Photos",
     description:
-      "Text or email photos of the property — rooms, the garage, the basement, whatever needs to go. Call or text and we'll talk you through what to send.",
+      "Text or email photos of the property — rooms, the garage, the basement, whatever needs to go. Call, text or email and we'll talk you through what to send.",
   },
   {
     title: "Estimate Over the Phone",

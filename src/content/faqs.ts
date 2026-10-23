@@ -5,7 +5,7 @@ export const faqs: FAQEntry[] = [
     category: "Getting Started",
     question: "How do I get a quote?",
     answer:
-      "Send us photos — text or email — or call (248) 321-9609 and we'll tell you what to send. From the photos we give you a ballpark estimate over the phone, usually the same day. The final quote is given on site, in person, once we've walked the property.",
+      "Send us photos — text them to (248) 321-9609 or email Dante@redemptioncleanoutservices.com — or call and we'll tell you what to send. From the photos we give you a ballpark estimate over the phone, usually the same day. The final quote is given on site, in person, once we've walked the property.",
   },
   {
     category: "Getting Started",

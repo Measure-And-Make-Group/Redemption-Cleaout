@@ -1,6 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { business, formatPhoneSmsHref, formatPhoneTelHref } from "@/content/business";
+import {
+  business,
+  formatEmailHref,
+  formatPhoneSmsHref,
+  formatPhoneTelHref,
+} from "@/content/business";
 import { legalNav, secondaryNav } from "@/content/navigation";
 import { services } from "@/content/services";
 import { approvedServiceAreas } from "@/content/serviceAreas";
@@ -51,6 +56,17 @@ export function Footer() {
                   className="font-display text-lg font-semibold transition-colors duration-micro hover:text-redemption-red"
                 >
                   {business.phoneDisplay}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="eyebrow-plain">Email</dt>
+              <dd className="mt-1">
+                <a
+                  href={formatEmailHref()}
+                  className="break-all text-clean-white/80 transition-colors duration-micro hover:text-redemption-red"
+                >
+                  {business.email}
                 </a>
               </dd>
             </div>
