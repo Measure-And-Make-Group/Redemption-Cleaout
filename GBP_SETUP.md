@@ -16,7 +16,7 @@ creation; this file is the field-level detail).
 > - **Tagline:** the client's September 21 update made the site's tagline
 >   "Redeem your property. Reclaim your space." (`business.legalTagline`).
 >   Conflict 1 below is superseded: use that wording on the profile.
-> - **Business email:** `dante@redemptioncleanoutservices.com` is confirmed and
+> - **Business email:** `Dante@redemptioncleanoutservices.com` is confirmed and
 >   published on the site, so the "Business email" row near the end no longer
 >   applies. Enter it on the profile.
 >
