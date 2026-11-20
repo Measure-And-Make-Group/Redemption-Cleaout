@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-
 const CONSENT_KEY = "redemption-consent";
 
 /**
@@ -41,10 +39,8 @@ export function ConsentBanner() {
       className="consent-banner fixed inset-x-3 bottom-[88px] z-50 max-w-sm rounded border border-warm-concrete bg-clean-white p-4 shadow-[0_2px_12px_rgba(0,0,0,0.14)] sm:bottom-4 sm:left-4 sm:right-auto"
     >
       <p className="text-sm text-heritage-black">
-        Allow optional analytics cookies to help us understand how visitors use the site.{" "}
-        <Link href="/privacy" className="font-semibold underline">
-          Privacy policy
-        </Link>
+        We use analytics to understand how visitors use this site. We don&apos;t collect
+        form contents, names, phone numbers, or emails in analytics.
       </p>
       <div className="mt-3 flex gap-2">
         <button
@@ -52,7 +48,7 @@ export function ConsentBanner() {
           onClick={() => setConsent("granted")}
           className="btn-primary flex-1 !py-2 text-xs"
         >
-          Accept analytics
+          Accept
         </button>
         <button
           type="button"
