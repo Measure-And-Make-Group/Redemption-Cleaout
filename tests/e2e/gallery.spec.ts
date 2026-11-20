@@ -29,3 +29,15 @@ test("reduced motion is respected on the homepage", async ({ page }) => {
   );
   expect(scrollBehavior).toBe("auto");
 });
+
+test("the hero and project photography are revealed with motion enabled", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const hero = page.getByRole("img", { name: /truck and dump trailer onsite/i });
+  await expect(hero).toBeVisible();
+
+  const project = page.getByRole("link", { name: /^Before: Furniture, tarps/ });
+  await project.scrollIntoViewIfNeeded();
+  await expect(project).toHaveCSS("clip-path", "inset(0px)");
+});

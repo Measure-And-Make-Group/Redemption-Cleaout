@@ -13,18 +13,13 @@ import { trackEvent } from "@/lib/analytics";
  */
 export function ReviewSection() {
   const [featured, ...rest] = testimonials;
+  if (!featured && !googleBusinessUrl && !googleReviewUrl) return null;
 
   return (
     <section className="border-y border-heritage-black/10 bg-warm-concrete py-section">
       <div className="container-page">
         <SectionHeader
-          label="Reviews"
-          title="What clients and partners say"
-          intro={
-            featured
-              ? undefined
-              : "We publish real reviews from real clients — nothing invented, and no rating we can't substantiate."
-          }
+          title={featured ? "What clients and partners say" : "Find us on Google"}
         />
 
         {featured ? (
@@ -48,7 +43,7 @@ export function ReviewSection() {
                   <Reveal
                     key={testimonial.id}
                     delay={index * 90}
-                    className="border-t border-heritage-black/12 py-6 first:border-t-0 first:pt-0"
+                    className="border-heritage-black/12 border-t py-6 first:border-t-0 first:pt-0"
                   >
                     <blockquote>
                       <p className="text-body-base text-steel-gray">
@@ -68,18 +63,10 @@ export function ReviewSection() {
           <Reveal className="mt-12">
             <div className="frame-double max-w-2xl">
               <div className="bg-clean-white p-8">
-                <p className="eyebrow-plain text-steel-gray">Being gathered</p>
-                <h3 className="mt-3 font-display text-xl font-semibold text-heritage-black">
-                  Reviews are on the way
-                </h3>
-                <p className="mt-4 text-body-base text-steel-gray">
-                  Redemption has grown on referrals rather than review volume — past clients
-                  have offered to write one as soon as the Google listing is live. As they
-                  land, they&apos;ll appear here word-for-word. Nothing on this page is
-                  written by us.
+                <p className="text-body-base text-steel-gray">
+                  Have we worked on your property? Share your experience with your
+                  neighbors.
                 </p>
-                {/* The review link is a write link from the Google Business Profile, so
-                    this is the collection path, not a "read our reviews" link. */}
                 {googleReviewUrl && (
                   <a
                     href={googleReviewUrl}

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ReviewSection } from "@/components/sections/ReviewSection";
+import { googleBusinessUrl, googleReviewUrl } from "@/content/business";
+import { testimonials } from "@/content/testimonials";
 import { CallToAction } from "@/components/ui/CallToAction";
 import { StructuredData } from "@/components/StructuredData";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
@@ -16,18 +18,35 @@ export const metadata: Metadata = pageMetadata({
 export default function ReviewsPage() {
   return (
     <>
-      <StructuredData data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Reviews", path: "/reviews" }])} />
-      <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Reviews", href: "/reviews" }]} />
+      <StructuredData
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Reviews", path: "/reviews" },
+        ])}
+      />
+      <Breadcrumbs
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Reviews", href: "/reviews" },
+        ]}
+      />
       <PageHero
         eyebrow="Reviews"
-        title="What clients and partners say"
-        description="Redemption has grown on referral relationships rather than review volume. We publish only what real clients actually wrote."
+        title="Redemption reviews"
+        description={
+          testimonials.length || googleBusinessUrl || googleReviewUrl
+            ? undefined
+            : "Explore before-and-after photos of cleanouts and demolition jobs across Metro Detroit."
+        }
       />
       <ReviewSection />
       <CallToAction
         location="reviews_cta"
-        headline="Judge us by the walkthrough"
-        supportingText="You'll know within one conversation whether this is the right fit. No pressure to book."
+        variant="band"
+        headline="See our work"
+        primaryHref="/projects"
+        primaryLabel="View Before and After Photos"
+        showCallText={false}
       />
     </>
   );

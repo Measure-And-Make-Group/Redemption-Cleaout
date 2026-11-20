@@ -25,12 +25,17 @@ export default function ServicesPage() {
           { name: "Services", path: "/services" },
         ])}
       />
-      <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Services", href: "/services" }]} />
+      <Breadcrumbs
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Services", href: "/services" },
+        ]}
+      />
 
       <PageHero
         eyebrow="Services"
-        title="Cleanouts and demolition"
-        description="Cleanouts and junk removal — from one garage to an entire property — and demolition, both handled end to end anywhere in Metro Detroit. If a property needs to be emptied and then torn down, that's one job with one crew, not two contractors."
+        title="Cleanouts, junk removal, and demolition"
+        description="We clear homes, businesses, and individual spaces across Metro Detroit. If a property needs both a cleanout and demolition, one crew can handle both."
       />
 
       <section className="py-section">
@@ -85,7 +90,10 @@ export default function ServicesPage() {
                     ))}
                   </ul>
 
-                  <Link href={`/services/${service.slug}`} className="link-editorial mt-8">
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="link-editorial mt-8"
+                  >
                     {service.shortName}
                     <span aria-hidden="true" className="btn-arrow">
                       &rarr;
@@ -97,7 +105,7 @@ export default function ServicesPage() {
           </div>
 
           <Reveal>
-            <p className="mt-16 max-w-measure-lg border-t border-heritage-black/12 pt-8 text-body-base text-steel-gray">
+            <p className="border-heritage-black/12 mt-16 max-w-measure-lg border-t pt-8 text-body-base text-steel-gray">
               Not sure which one you need? Send photos and we&apos;ll tell you.{" "}
               <Link
                 href="/how-it-works"

@@ -2,8 +2,12 @@ import { test, expect } from "@playwright/test";
 
 test("homepage loads with primary hero and CTA", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText(/redeem your property/i);
-  await expect(page.getByRole("link", { name: "Get a Free Estimate" }).first()).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(
+    /estate cleanouts, junk removal & demolition/i,
+  );
+  await expect(
+    page.getByRole("link", { name: "Get a Free Estimate" }).first(),
+  ).toBeVisible();
 });
 
 test("desktop nav links to a service detail page", async ({ page }) => {

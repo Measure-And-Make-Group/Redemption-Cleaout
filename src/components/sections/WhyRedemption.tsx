@@ -1,84 +1,33 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
-
-/**
- * One dominant differentiator carries the section; the remaining four sit
- * beneath it as a paced two-column list. Deliberately not five equal cards.
- */
-const lead = {
-  title: "Real-estate understanding",
-  body: "Dante's experience means the team understands closings, listing preparation, distressed properties, investor timelines, and professional communication. A cleanout is rarely the point — the property has somewhere to be next, and the schedule is usually already set. That is why the work is built to be fast and reliable: a closing date does not move because a basement took longer than someone guessed.",
-};
-
-const supporting = [
-  {
-    title: "Fast, reliable property cleanouts",
-    body: "Redemption is structured for complete-property projects rather than isolated pickups, so a full house, garage, basement and yard are scoped to be cleared in one visit by one crew instead of spread across return trips. You get a date at the walkthrough, and the crew works to it.",
-  },
-  {
-    title: "Clear communication",
-    body: "Clients and professional partners know what happens next, what is included, and who is accountable. No chasing anyone for an answer.",
-  },
-  {
-    title: "Respect for people and property",
-    body: "Sensitive situations are handled without judgment or unnecessary exposure.",
-  },
-  {
-    title: "Ready for what comes next",
-    body: "The objective is not just removal. The property should be positioned for its next use, sale, renovation, occupancy, or transition.",
-  },
-];
 
 export function WhyRedemption() {
   return (
     <section className="py-section">
-      <div className="container-page">
-        <div className="grid gap-x-14 gap-y-12 lg:grid-cols-12">
-          {/* Lead column */}
-          <div className="lg:col-span-7">
-            <Reveal>
-              <p className="eyebrow">Why Redemption</p>
-            </Reveal>
-            <Reveal delay={80}>
-              <h2 className="mt-5 text-section-xl font-bold text-heritage-black">
-                More than removal.
-              </h2>
-            </Reveal>
-            <Reveal delay={160}>
-              <p className="mt-8 font-condensed text-2xl font-bold uppercase tracking-wide text-redemption-red">
-                {lead.title}
-              </p>
-            </Reveal>
-            <Reveal delay={220}>
-              <p className="mt-4 max-w-measure-lg text-body-lg text-steel-gray">{lead.body}</p>
-            </Reveal>
-          </div>
-
-          {/* Proof image */}
-          <Reveal variant="mask" delay={200} className="lg:col-span-5">
-            <div className="img-frame aspect-editorial w-full">
-              <Image
-                src="/images/photos/branded-truck-dump-trailer-driveway.jpg"
-                alt="Redemption's branded truck and dump trailer backed up to an open garage on a residential driveway."
-                fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-          </Reveal>
-        </div>
-
-        {/* Supporting four */}
-        <div className="mt-16 grid gap-x-14 gap-y-10 border-t border-heritage-black/12 pt-12 sm:grid-cols-2">
-          {supporting.map((item, index) => (
-            <Reveal key={item.title} delay={index * 90}>
-              <h3 className="font-display text-lg font-semibold text-heritage-black">
-                {item.title}
-              </h3>
-              <p className="mt-3 max-w-measure text-body-base text-steel-gray">{item.body}</p>
-            </Reveal>
-          ))}
-        </div>
+      <div className="container-page grid items-center gap-9 lg:grid-cols-2 lg:gap-14">
+        <Reveal variant="mask" className="img-frame aspect-editorial w-full">
+          <Image
+            src="/images/photos/about-team-at-trailer.jpg"
+            alt="The Redemption crew standing together by their trailer."
+            fill
+            sizes="(min-width: 1024px) 48vw, 100vw"
+            className="object-cover"
+          />
+        </Reveal>
+        <Reveal>
+          <h2 className="text-section font-bold text-heritage-black">
+            A local crew that understands property deadlines
+          </h2>
+          <p className="mt-5 max-w-measure text-body-lg text-steel-gray">
+            Dante brings 13 years of real-estate experience to Redemption. Tell us when
+            you need the property ready for a sale, renovation, or turnover. We’ll use
+            that date to plan the job with you at the walkthrough.
+          </p>
+          <Link href="/about" className="link-editorial mt-6">
+            Meet Dante, Laura, and the crew
+          </Link>
+        </Reveal>
       </div>
     </section>
   );
