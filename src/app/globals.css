@@ -273,6 +273,10 @@
 .motion-ready [data-reveal="mask"] {
   opacity: 1;
   transform: none;
+}
+
+/* Keep the observed element unclipped so it can enter the viewport. */
+.motion-ready [data-reveal="mask"] > * {
   clip-path: inset(0 0 100% 0);
   transition: clip-path 900ms var(--ease-editorial);
   transition-delay: var(--reveal-delay, 0ms);
@@ -294,12 +298,14 @@
 }
 
 .motion-ready [data-reveal].is-visible,
+.motion-ready [data-reveal]:focus-within,
 .motion-ready [data-reveal="lines"].is-visible > * {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
-.motion-ready [data-reveal="mask"].is-visible {
+.motion-ready [data-reveal="mask"].is-visible > *,
+.motion-ready [data-reveal="mask"]:focus-within > * {
   clip-path: inset(0 0 0 0);
 }
 

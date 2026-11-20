@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { business, formatPhoneTelHref } from "@/content/business";
-import { Reveal } from "@/components/motion/Reveal";
 
 export function Hero() {
   return (
@@ -13,8 +12,8 @@ export function Hero() {
             Estate cleanouts, junk removal &amp; demolition
           </h1>
           <p className="mt-5 max-w-measure text-body-lg text-clean-white/80">
-            From a garage full of junk to an entire estate, we clear the property and haul
-            everything away. Send photos for a free estimate.
+            From a garage full of junk to an entire estate, we clear what you need removed
+            and haul it away. Send photos for a free estimate.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href="/request-walkthrough" className="btn-primary">
@@ -28,7 +27,7 @@ export function Hero() {
             {business.legalTagline}
           </p>
         </div>
-        <Reveal variant="mask" className="img-frame aspect-[3/2] w-full lg:aspect-[5/4]">
+        <div className="img-frame aspect-[3/2] w-full lg:aspect-[5/4]">
           <Image
             src="/images/photos/branded-truck-and-dump-trailer-residential-drive.jpg"
             alt="Redemption’s truck and dump trailer onsite at a Metro Detroit home."
@@ -37,7 +36,7 @@ export function Hero() {
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover"
           />
-        </Reveal>
+        </div>
       </div>
     </section>
   );
