@@ -30,7 +30,7 @@ export const services: ServiceDefinition[] = [
     metaDescription:
       "Full property cleanouts and junk removal across Metro Detroit — estate, foreclosure, commercial, hoarding, and move-out clearing, plus single garages, basements, attics, and item pickups, in Macomb, Oakland, Wayne, Washtenaw, Livingston, Monroe, and St. Clair counties.",
     situation:
-      "Whether it's a whole property — every room, closet, garage, basement, and outbuilding — or one garage, basement, attic, or a load of furniture and appliances, we clear it and haul it away.",
+      "We clear estates, homes, and commercial properties from top to bottom. We also haul furniture, appliances, and junk from individual rooms, garages, or basements.",
     definition:
       "A full property cleanout is a complete, top-to-bottom removal of a property's contents — estate, foreclosure, commercial, hoarding-related, and move-out jobs. Junk removal is the same work on a defined scope: one area, or a specific list of items. Either way it is one crew and one agreed scope, and the space is left ready for what comes next. Anything you want kept is set aside, and usable items are sorted for donation where practical.",
     weHandle: [
@@ -76,7 +76,7 @@ export const services: ServiceDefinition[] = [
       },
       {
         title: "Full Clearing",
-        description: "Our crew clears the entire property, room by room, safely and completely.",
+        description: "Our crew clears the spaces and items listed in your quote.",
       },
       {
         title: "Sort & Divert",
@@ -107,7 +107,7 @@ export const services: ServiceDefinition[] = [
           "It depends on the property's size and condition. Most single-family homes are cleared in one to three days. You'll get a real timeline at the walkthrough, not a guess.",
       },
       {
-        question: "What does \"limited access\" mean on a cleanout?",
+        question: 'What does "limited access" mean on a cleanout?',
         answer:
           "Anything that makes getting contents out of the building slower or harder — narrow staircases, tight hallways and doorways, an upper-floor unit with no working elevator, or a driveway a truck and trailer can't reach. It affects crew size and time, which is exactly why the final quote comes after we've seen the property in person.",
       },
@@ -145,7 +145,7 @@ export const services: ServiceDefinition[] = [
     metaDescription:
       "Demolition across Metro Detroit — interior tear-outs, garages, decks, sheds, pole barns, and full structure teardowns in Macomb, Oakland, Wayne, Washtenaw, Livingston, Monroe, and St. Clair counties.",
     situation:
-      "Something on the property has to come down — an interior that has to be torn out before a renovation, a failing garage or deck, an outbuilding, or a structure at the end of its life.",
+      "From interior tear-outs before a renovation to garages, decks, outbuildings, and full structures, we handle the demolition and haul away the debris.",
     definition:
       "Redemption handles demolition from interior tear-outs through full structure teardowns, and hauls the debris out with the same crew. We're insured for the work we take on, and because we run cleanouts too, a property that needs to be emptied and then torn down is one job with one point of contact — not two contractors scheduling around each other.",
     weHandle: [
@@ -189,7 +189,8 @@ export const services: ServiceDefinition[] = [
       },
       {
         title: "Demolition",
-        description: "The structure comes down under the scope confirmed at the walkthrough.",
+        description:
+          "The structure comes down under the scope confirmed at the walkthrough.",
       },
       {
         title: "Haul-Off & Site Clearing",
@@ -198,7 +199,8 @@ export const services: ServiceDefinition[] = [
       },
       {
         title: "Final Walkthrough",
-        description: "We walk the site with you to confirm the work matches what was quoted.",
+        description:
+          "We walk the site with you to confirm the work matches what was quoted.",
       },
     ],
     relatedServiceSlugs: ["full-property-cleanouts"],

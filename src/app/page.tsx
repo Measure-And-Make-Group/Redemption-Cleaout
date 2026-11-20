@@ -5,6 +5,7 @@ import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { WhyRedemption } from "@/components/sections/WhyRedemption";
 import { PreviousWork } from "@/components/sections/PreviousWork";
 import { ReviewSection } from "@/components/sections/ReviewSection";
+import { testimonials } from "@/content/testimonials";
 import { CallToAction } from "@/components/ui/CallToAction";
 import { StructuredData } from "@/components/StructuredData";
 import { webPageJsonLd } from "@/lib/structuredData";
@@ -17,14 +18,6 @@ export const metadata: Metadata = pageMetadata({
   path: "/",
 });
 
-/**
- * Deliberately short. The page runs hero, services, how quoting works, why us,
- * before & after, reviews, CTA — and nothing else. Sections were cut (a trust
- * strip, a situation picker, a partner block, a founder blurb, an FAQ preview,
- * the county grid) because each one added a decision to make before reaching a
- * phone number. Coverage lives in the footer and on /service-areas. Add a
- * section here only if it earns that cost.
- */
 export default function HomePage() {
   return (
     <>
@@ -37,14 +30,15 @@ export default function HomePage() {
       />
       <Hero />
       <FlagshipServices />
+      <PreviousWork />
       <HowItWorksSection />
       <WhyRedemption />
-      <PreviousWork />
-      <ReviewSection />
+      {testimonials.length > 0 && <ReviewSection />}
       <CallToAction
         location="homepage_final_cta"
-        headline="Redeem your property."
-        supportingText="Send us photos and we'll give you a ballpark estimate over the phone. Then we come out, walk the property, and give you the final quote in person."
+        variant="band"
+        headline="Tell us what needs to go."
+        supportingText="Share a few photos and the city where the property is located."
       />
     </>
   );

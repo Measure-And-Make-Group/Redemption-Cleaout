@@ -3,36 +3,30 @@ import Image from "next/image";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
-/**
- * The home page's service index: estate cleanouts, junk removal, and
- * demolition, matching the hero's service line. Estate cleanouts and junk
- * removal are both handled under the cleanouts pillar page, so both link
- * there; demolition has its own page.
- */
 const homeServices = [
   {
     name: "Estate Cleanouts",
     href: "/services/full-property-cleanouts",
-    linkLabel: "Cleanouts & Junk Removal",
+    linkLabel: "Explore estate cleanouts",
     image: "/images/photos/estate-cleanout-driveway-staging.jpg",
     description:
-      "Clearing an inherited or long-held home at the pace and with the privacy the situation calls for. Anything you flag is set aside, never thrown out by default, and we can work with executors and estate-sale companies.",
+      "Clear an inherited home with care. We set aside the belongings you want to keep and coordinate with executors and estate-sale teams.",
   },
   {
     name: "Junk Removal",
     href: "/services/full-property-cleanouts",
-    linkLabel: "Cleanouts & Junk Removal",
+    linkLabel: "Explore junk removal",
     image: "/images/photos/garage-cleanout-in-progress.jpg",
     description:
-      "A single garage, basement, or attic, or a load of furniture and appliances — no need to clear the whole property. Usable items are sorted for donation and recycling where practical.",
+      "Clear a garage, basement, or attic, or arrange a pickup for furniture and appliances.",
   },
   {
     name: "Demolition",
     href: "/services/demolition",
-    linkLabel: "Demolition",
+    linkLabel: "Explore demolition",
     image: "/images/photos/demolition-teardown-after-04.jpg",
     description:
-      "Interior tear-outs, garages, decks, sheds, pole barns, and larger structures, with the debris hauled off by the same crew. A property that has to be emptied first is one job, not two.",
+      "From interior tear-outs to garages, decks, sheds, and larger structures. The same crew hauls away the debris.",
   },
 ];
 
@@ -41,22 +35,16 @@ export function FlagshipServices() {
     <section className="on-dark bg-heritage-black py-section text-clean-white">
       <div className="container-page">
         <SectionHeader
-          label="Services"
-          title="Where we can help"
+          title="What we clear"
           intro="Residential and commercial, anywhere in Metro Detroit."
           onDark
         />
 
-        <div className="mt-14 grid gap-x-10 gap-y-14 md:grid-cols-3">
+        <div className="mt-9 grid gap-x-8 gap-y-9 md:grid-cols-3">
           {homeServices.map((service, index) => (
             <Reveal key={service.name} delay={index * 90} className="h-full">
-              <article className="flex h-full flex-col border-t border-clean-white/15 pt-8">
-                <Link
-                  href={service.href}
-                  tabIndex={-1}
-                  aria-hidden="true"
-                  className="block"
-                >
+              <article className="flex h-full flex-col border-b border-clean-white/20 pb-6">
+                <div>
                   <div className="img-frame aspect-editorial w-full">
                     <Image
                       src={service.image}
@@ -66,22 +54,17 @@ export function FlagshipServices() {
                       className="img-zoom object-cover"
                     />
                   </div>
-                </Link>
+                </div>
 
                 <h3 className="mt-7 font-display text-subhead font-semibold">
-                  <Link
-                    href={service.href}
-                    className="transition-colors duration-micro hover:text-redemption-red"
-                  >
-                    {service.name}
-                  </Link>
+                  {service.name}
                 </h3>
 
                 <p className="mt-4 max-w-measure text-body-base text-clean-white/70">
                   {service.description}
                 </p>
 
-                <Link href={service.href} className="link-editorial mt-auto pt-8">
+                <Link href={service.href} className="link-editorial mt-auto pt-5">
                   {service.linkLabel}
                   <span aria-hidden="true" className="btn-arrow">
                     &rarr;

@@ -29,39 +29,48 @@ export function JobberRequestForm() {
 
   // ---- Not configured -----------------------------------------------------
   if (!jobberEmbedUrl) {
+    if (jobberRequestFormUrl) {
+      return (
+        <a href={jobberRequestFormUrl} className="btn-primary">
+          Open the estimate form
+        </a>
+      );
+    }
+
     return (
-      <div id="jobber-form-anchor" className="frame-double">
+      <div className="frame-double">
         <div className="bg-warm-concrete p-8">
-          <p className="eyebrow-plain text-steel-gray">Online form being connected</p>
-          <h3 className="mt-3 font-display text-xl font-semibold text-heritage-black">
-            Right now, the fastest way to reach us is directly
+          <h3 className="font-display text-xl font-semibold text-heritage-black">
+            Text or call Dante
           </h3>
-          <p className="mt-4 max-w-measure-lg text-body-base text-steel-gray">
-            Our online request form is being connected to our scheduling system. Until it&apos;s
-            live, call or text and we&apos;ll take the property details and get your
-            walkthrough on the calendar — usually in the same conversation.
+          <p className="mt-3 max-w-measure text-body-base text-steel-gray">
+            Text photos, the property city, and what needs to go. If you’d rather talk
+            through the job, give us a call.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
-              href={formatPhoneTelHref()}
+              href={formatPhoneSmsHref()}
               className="btn-primary"
               onClick={() =>
-                trackEvent({ name: "click_call", params: { location: "jobber_fallback" } })
+                trackEvent({
+                  name: "click_text",
+                  params: { location: "jobber_fallback" },
+                })
+              }
+            >
+              Text Photos
+            </a>
+            <a
+              href={formatPhoneTelHref()}
+              className="btn-secondary"
+              onClick={() =>
+                trackEvent({
+                  name: "click_call",
+                  params: { location: "jobber_fallback" },
+                })
               }
             >
               Call {business.phoneDisplay}
-              <span aria-hidden="true" className="btn-arrow">
-                &rarr;
-              </span>
-            </a>
-            <a
-              href={formatPhoneSmsHref()}
-              className="btn-secondary"
-              onClick={() =>
-                trackEvent({ name: "click_text", params: { location: "jobber_fallback" } })
-              }
-            >
-              Text {business.phoneDisplay}
             </a>
           </div>
         </div>
@@ -76,7 +85,7 @@ export function JobberRequestForm() {
         <div
           role="status"
           aria-live="polite"
-          className="flex min-h-[520px] w-full flex-col items-center justify-center gap-4 border border-heritage-black/12 bg-warm-concrete/60"
+          className="border-heritage-black/12 flex min-h-[520px] w-full flex-col items-center justify-center gap-4 border bg-warm-concrete/60"
         >
           <span
             aria-hidden="true"
@@ -96,8 +105,8 @@ export function JobberRequestForm() {
               The request form couldn&apos;t be reached
             </h3>
             <p className="mt-4 max-w-measure-lg text-body-base text-steel-gray">
-              This is usually a browser or connection issue, not your request. Open the form in
-              a new tab, or call or text us and we&apos;ll handle it directly.
+              This is usually a browser or connection issue, not your request. Open the
+              form in a new tab, or call or text us and we&apos;ll handle it directly.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               {jobberRequestFormUrl && (
@@ -129,7 +138,7 @@ export function JobberRequestForm() {
         onError={() => setStatus("error")}
         className={
           status === "ready"
-            ? "h-[960px] w-full border border-heritage-black/12 bg-clean-white"
+            ? "border-heritage-black/12 h-[960px] w-full border bg-clean-white"
             : "sr-only"
         }
       />
@@ -145,7 +154,11 @@ export function JobberRequestForm() {
           >
             Open it in a new tab
           </a>{" "}
-          or call {business.phoneDisplay}.
+          or{" "}
+          <a href={formatPhoneTelHref()} className="underline">
+            call {business.phoneDisplay}
+          </a>
+          .
         </p>
       )}
     </div>

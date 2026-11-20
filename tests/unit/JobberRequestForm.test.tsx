@@ -7,12 +7,14 @@ import { JobberRequestForm } from "@/components/JobberRequestForm";
 describe("JobberRequestForm (embed not configured)", () => {
   it("does not render an iframe that looks like a working form", () => {
     render(<JobberRequestForm />);
-    expect(screen.queryByTitle(/request a property walkthrough/i)).not.toBeInTheDocument();
+    expect(
+      screen.queryByTitle(/request a property walkthrough/i),
+    ).not.toBeInTheDocument();
   });
 
-  it("says plainly that the online form is being connected", () => {
+  it("tells visitors what to send for an estimate", () => {
     render(<JobberRequestForm />);
-    expect(screen.getByText(/online form being connected/i)).toBeInTheDocument();
+    expect(screen.getByText(/property city, and what needs to go/i)).toBeInTheDocument();
   });
 
   it("offers working call and text alternatives", () => {
@@ -21,7 +23,7 @@ describe("JobberRequestForm (embed not configured)", () => {
       "href",
       "tel:+12483219609",
     );
-    expect(screen.getByRole("link", { name: /^Text \(248\) 321-9609/ })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Text Photos" })).toHaveAttribute(
       "href",
       "sms:+12483219609",
     );

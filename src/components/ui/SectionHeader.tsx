@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/motion/Reveal";
 
 type SectionHeaderProps = {
-  label: string;
+  label?: string;
   title: string;
   intro?: string;
   /** Renders on a dark panel. */
@@ -22,12 +22,14 @@ export function SectionHeader({
   return (
     <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
       <div className="max-w-measure-lg">
-        <Reveal>
-          <p className="eyebrow">{label}</p>
-        </Reveal>
+        {label && (
+          <Reveal>
+            <p className="eyebrow">{label}</p>
+          </Reveal>
+        )}
         <Reveal delay={80}>
           <h2
-            className={`mt-5 font-bold ${size === "section-xl" ? "text-section-xl" : "text-section"} ${
+            className={`${label ? "mt-5" : ""}font-bold ${size === "section-xl" ? "text-section-xl" : "text-section"} ${
               onDark ? "text-clean-white" : "text-heritage-black"
             }`}
           >

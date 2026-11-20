@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Reveal } from "@/components/motion/Reveal";
 
 type PageHeroProps = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   description?: string;
   /**
@@ -37,7 +37,7 @@ export function PageHero({
       className={`relative isolate overflow-hidden ${
         light
           ? "border-b border-heritage-black/10 bg-warm-concrete text-heritage-black"
-          : "bg-heritage-black text-clean-white on-dark"
+          : "on-dark bg-heritage-black text-clean-white"
       }`}
     >
       {useImage && (
@@ -71,11 +71,15 @@ export function PageHero({
 
       <div className="container-page py-[clamp(3.5rem,7vw,6.5rem)]">
         <div className="max-w-4xl">
-          <Reveal>
-            <p className={`eyebrow ${light ? "" : ""}`}>{eyebrow}</p>
-          </Reveal>
+          {eyebrow && (
+            <Reveal>
+              <p className="eyebrow">{eyebrow}</p>
+            </Reveal>
+          )}
           <Reveal delay={90}>
-            <h1 className="mt-5 text-section-xl font-bold">{title}</h1>
+            <h1 className={`${eyebrow ? "mt-5" : ""}text-section-xl font-bold`}>
+              {title}
+            </h1>
           </Reveal>
           {description && (
             <Reveal delay={170}>

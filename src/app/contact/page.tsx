@@ -28,20 +28,25 @@ export default function ContactPage() {
           { name: "Contact", path: "/contact" },
         ])}
       />
-      <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact", href: "/contact" }]} />
+      <Breadcrumbs
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Contact", href: "/contact" },
+        ]}
+      />
 
       <PageHero
         eyebrow="Contact"
         title="Get in touch"
-        description="Call, text, or send the property details online. All three reach the same person."
+        description="Call, text, or email Dante about a Metro Detroit property cleanout, junk pickup, or demolition project."
       />
 
       <section className="py-section">
         <div className="container-page grid gap-x-14 gap-y-14 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <div className="border-t border-heritage-black/12">
+            <div className="border-heritage-black/12 border-t">
               <Reveal>
-                <div className="grid gap-2 border-b border-heritage-black/12 py-8 sm:grid-cols-[minmax(0,10rem)_1fr] sm:gap-8">
+                <div className="border-heritage-black/12 grid gap-2 border-b py-8 sm:grid-cols-[minmax(0,10rem)_1fr] sm:gap-8">
                   <h2 className="eyebrow-plain text-steel-gray">Call</h2>
                   <div>
                     <a
@@ -58,7 +63,7 @@ export default function ContactPage() {
               </Reveal>
 
               <Reveal delay={80}>
-                <div className="grid gap-2 border-b border-heritage-black/12 py-8 sm:grid-cols-[minmax(0,10rem)_1fr] sm:gap-8">
+                <div className="border-heritage-black/12 grid gap-2 border-b py-8 sm:grid-cols-[minmax(0,10rem)_1fr] sm:gap-8">
                   <h2 className="eyebrow-plain text-steel-gray">Text</h2>
                   <div>
                     <a
@@ -75,7 +80,7 @@ export default function ContactPage() {
               </Reveal>
 
               <Reveal delay={160}>
-                <div className="grid gap-2 border-b border-heritage-black/12 py-8 sm:grid-cols-[minmax(0,10rem)_1fr] sm:gap-8">
+                <div className="border-heritage-black/12 grid gap-2 border-b py-8 sm:grid-cols-[minmax(0,10rem)_1fr] sm:gap-8">
                   <h2 className="eyebrow-plain text-steel-gray">Email</h2>
                   <div>
                     <a
@@ -92,8 +97,8 @@ export default function ContactPage() {
               </Reveal>
 
               <Reveal delay={220}>
-                <div className="grid gap-2 border-b border-heritage-black/12 py-8 sm:grid-cols-[minmax(0,10rem)_1fr] sm:gap-8">
-                  <h2 className="eyebrow-plain text-steel-gray">Online</h2>
+                <div className="border-heritage-black/12 grid gap-2 border-b py-8 sm:grid-cols-[minmax(0,10rem)_1fr] sm:gap-8">
+                  <h2 className="eyebrow-plain text-steel-gray">Estimates</h2>
                   <div>
                     <Link
                       href="/request-walkthrough"
@@ -102,7 +107,7 @@ export default function ContactPage() {
                       Get a free estimate
                     </Link>
                     <p className="mt-2 text-sm text-steel-gray">
-                      Send the property details and we&apos;ll follow up to schedule.
+                      See what details to share and how we confirm your quote.
                     </p>
                   </div>
                 </div>
@@ -114,7 +119,7 @@ export default function ContactPage() {
                   <div>
                     <a
                       href={business.instagramUrl}
-                      className="font-display text-xl font-semibold text-heritage-black transition-colors duration-micro hover:text-redemption-red"
+                      className="break-all font-display text-xl font-semibold text-heritage-black transition-colors duration-micro hover:text-restoration-red-dark"
                     >
                       {business.instagramHandle}
                     </a>

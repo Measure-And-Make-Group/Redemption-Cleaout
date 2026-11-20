@@ -23,8 +23,7 @@ export function PreviousWork() {
     <section className="py-section">
       <div className="container-page">
         <SectionHeader
-          label="Before & After"
-          title="Properties we've cleared and structures we've taken down"
+          title="Before and after"
           action={
             <Link href="/projects" className="link-editorial">
               See all before &amp; after photos
@@ -35,7 +34,7 @@ export function PreviousWork() {
           }
         />
 
-        <ul className="mt-14 grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-3">
+        <ul className="mt-9 grid grid-cols-1 gap-x-6 gap-y-5 md:grid-cols-3">
           {pairs.map((set, index) => (
             <Reveal key={set.id} as="li" variant="mask" delay={index * 70}>
               <Link href="/projects" className="group grid grid-cols-2 gap-2">

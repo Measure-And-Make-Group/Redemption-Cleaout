@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <MobileActionBar />
-        <Analytics />
+        {process.env.VERCEL_ENV !== "preview" && <Analytics />}
       </body>
     </html>
   );

@@ -22,34 +22,45 @@ export function ProcessTimeline({
   const bodyText = onDark ? "text-clean-white/65" : "text-steel-gray";
   const dotRing = onDark ? "bg-heritage-black" : "bg-clean-white";
 
+  const columns = steps.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-5";
+
   return (
     <div className="relative">
       {/* Continuous connector */}
       <span
         aria-hidden="true"
-        className={`absolute left-[7px] top-2 h-[calc(100%-1rem)] w-px md:left-0 md:top-[7px] md:h-px md:w-full ${line}`}
+        className={`absolute left-[7px] top-2 h-[calc(100%-1rem)] w-px lg:left-0 lg:top-[7px] lg:h-px lg:w-full ${line}`}
       />
 
       {/* The ol is the grid itself, so it directly contains only li elements. */}
-      <ol className="grid gap-y-10 md:grid-cols-2 md:gap-x-10 lg:grid-cols-5 lg:gap-x-8">
+      <ol className={`grid gap-y-10 md:gap-x-8 ${columns}`}>
         {steps.map((step, index) => (
-          <Reveal key={step.title} delay={index * 100} as="li" className="relative pl-9 md:pl-0 md:pt-9">
+          <Reveal
+            key={step.title}
+            delay={index * 100}
+            as="li"
+            className="relative pl-9 lg:pl-0 lg:pt-9"
+          >
             {/* Node */}
             <span
               aria-hidden="true"
-              className={`absolute left-0 top-1.5 grid h-[15px] w-[15px] place-items-center rounded-full md:top-0 ${dotRing}`}
+              className={`absolute left-0 top-1.5 grid h-[15px] w-[15px] place-items-center rounded-full lg:top-0 ${dotRing}`}
             >
               <span className="h-[9px] w-[9px] rounded-full bg-redemption-red" />
             </span>
 
             <span
               aria-hidden="true"
-              className={`block font-display text-2xl font-bold leading-none tabular-nums ${numeral}`}
+              className={`block font-display text-2xl font-bold tabular-nums leading-none ${numeral}`}
             >
               {String(index + 1).padStart(2, "0")}
             </span>
-            <h3 className={`mt-2.5 font-display text-lg font-semibold ${heading}`}>{step.title}</h3>
-            <p className={`mt-2.5 text-sm leading-relaxed ${bodyText}`}>{step.description}</p>
+            <h3 className={`mt-2.5 font-display text-lg font-semibold ${heading}`}>
+              {step.title}
+            </h3>
+            <p className={`mt-2.5 text-sm leading-relaxed ${bodyText}`}>
+              {step.description}
+            </p>
           </Reveal>
         ))}
       </ol>

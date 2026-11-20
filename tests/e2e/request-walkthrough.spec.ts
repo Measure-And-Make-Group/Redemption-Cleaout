@@ -1,10 +1,17 @@
 import { test, expect } from "@playwright/test";
 
-test("request-walkthrough page shows an honest Jobber fallback when unconfigured", async ({ page }) => {
+test("request-walkthrough page shows an honest Jobber fallback when unconfigured", async ({
+  page,
+}) => {
   await page.goto("/request-walkthrough");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText(/get a free estimate/i);
-  // Honest unavailable state, not a form that looks functional.
-  await expect(page.getByText(/online form being connected/i)).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(
+    /get a free estimate/i,
+  );
+  await expect(page.getByRole("link", { name: "Text Photos" })).toHaveAttribute(
+    "href",
+    "sms:+12483219609",
+  );
+  await expect(page.locator("iframe")).toHaveCount(0);
   const phoneLinks = page.locator('a[href="tel:+12483219609"]');
   await expect(phoneLinks.first()).toBeVisible();
 });
@@ -27,7 +34,9 @@ test("county service-area pages exist and unknown areas 404", async ({ page }) =
   expect(response?.status()).toBe(404);
 });
 
-test("retired service URLs redirect to the pillar page they were folded into", async ({ page }) => {
+test("retired service URLs redirect to the pillar page they were folded into", async ({
+  page,
+}) => {
   await page.goto("/services/estate-cleanouts");
   await expect(page).toHaveURL(/\/services\/full-property-cleanouts$/);
 
